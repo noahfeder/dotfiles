@@ -56,6 +56,7 @@ PATH="/usr/local/share/npm/bin:$PATH"                      # NPM
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"                # Homebrew
 PATH="/usr/local/heroku/bin:$PATH"                         # Heroku Toolbelt
 PATH="/usr/local/go/bin:$PATH"                             # Golang
+PATH="/usr/local/Cellar:$PATH"                             # Homebrew Cellar
 # Uncomment to use GNU versions of core utils by default.
 #   See scripts/mac/homebrew_install_core_utils.sh in the Installfest.
 #   In essence, Mac OS X is in BSD userland, while Linux et al are in
@@ -121,19 +122,28 @@ alias tre='tree'
 #git shortcuts
 alias gs='git status'
 alias ga='git add'
+alias gb='git branch'
+alias gbd='git branch -d' #delete a branch, no override
+alias gcb='git checkout -b' #checkout into new branch
 alias gpull='git pull'
 alias gpush='git push'
-alias gcom='git commit'
+alias gpo='git push origin' #basic push
+alias gcm='git commit -m' #basic commit
+alias gca='git commit --amend' #amend previous commit
 alias gl='git log'
-alias gq='git add . && git commit -m'
-
+alias gq='git add . && git commit -m' #risky gitfu, add and commit all in pwd
+alias gai='git add -i' #git-add interactive mode 
+alias gd='git diff'
+alias ghv='gitk --follow' #view Git History Visual of a file/dir/pwd in gitk
+alias ght='git log -p' #view Git History Text i.e. log patch history of a file/dir/pwd
 #silly shortcuts
-alias hack_the_database=psql
-alias r='rails server'
-alias rc='rails console'
+alias hack_the_database=psql #lol
+alias r='rails server' #ezpz
+alias rc='rails console' #ezrpzr
 alias ios="react-native run-ios --simulator 'iPhone 6 (9.3)'"
 alias android="react-native run-android"
-alias dbkill="rails db:drop && rails db:create && rails db:migrate && rails db:seed"
+alias dbkill="rails db:drop && rails db:create && rails db:migrate && rails db:seed" #YOLO
+alias mamplogs="subl /Applications/MAMP/logs/"
 # List ACLs (finer-grained permissions that can be inherited).
 # ACLs are a necessary part of OSX fs since 10.6; see
 # - ACLs on OSX: https://goo.gl/PhkcA2
@@ -177,9 +187,9 @@ alias show_files="defaults write com.apple.finder AppleShowAllFiles TRUE && kill
 
 # Sublime should be symlinked. Otherwise use one of these
 # alias subl='open -a "Sublime Text"'
-# alias subl='open -a "Sublime Text 2"'
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias chrome='open -a "Google Chrome"'
-
+alias ngrok='/Users/noah/ngrok'
 # =================
 # rbenv
 # =================
@@ -286,7 +296,7 @@ rogue() {
 ## PJ: Might not need?
 
 ## Tab improvements
-# bind 'set completion-ignore-case on'
+bind 'set completion-ignore-case on'
 # # make completions appear immediately after pressing TAB once
 # bind 'set show-all-if-ambiguous on'
 # bind 'TAB: menu-complete'
